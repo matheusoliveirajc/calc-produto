@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Documento</title>
     <style>
         #resultado{display: none;}/*Só irá aparecer quando clicarmos no botão (adiconar ao carrinho)*/
     </style>
 </head>
 <body>
     <div id="produtos"><!--O value será o preço do produto, o valor que ele terá quando chamarmos ele no código-->
-        <p>Ekos Frescor: <b>R$ 23</b> <input type="checkbox" name="Ekos Frescor" id="produto1" class="produtos" value="23"/></p>
-        <p>Deo Perfum Essencial: <b>R$ 34</b> <input type="checkbox" name="Deo Perfum Essencial" id="produto2" class="produtos" value="34"/></p>
-        <p>Sabonetes: <b>R$ 16</b> <input type="checkbox" name="Sabonetes" id="produto3" class="produtos" value="16"/></p>
-        <p>Creme Hidratante: <b>R$ 18</b> <input type="checkbox" name="Creme Hidratante" id="produto4" class="produtos" value="18"/></p>
-        <p>Florata Red: <b>R$ 30</b> <input type="checkbox" name="Florata Red" id="produto5" class="produtos" value="30"/></p>
+        <p><label for="produto1">Ekos Frescor:</label> <b>R$ 23</b> <input type="checkbox" name="Ekos Frescor" id="produto1" class="produtos" value="23"/></p>
+        <p><label for="produto2">Deo Perfum Essencial:</label> <b>R$ 34</b> <input type="checkbox" name="Deo Perfum Essencial" id="produto2" class="produtos" value="34"/></p>
+        <p><label for="produto3">Sabonetes:</label> <b>R$ 16</b> <input type="checkbox" name="Sabonetes" id="produto3" class="produtos" value="16"/></p>
+        <p><label for="produto4">Creme Hidratante:</label> <b>R$ 18</b> <input type="checkbox" name="Creme Hidratante" id="produto4" class="produtos" value="18"/></p>
+        <p><label for="produto5">Florata Red:</label> <b>R$ 30</b> <input type="checkbox" name="Florata Red" id="produto5" class="produtos" value="30"/></p>
         <button type="submit" onclick="somarValores()">Adicionar ao carrinho</button>
     </div>
     <div id="resultado">
