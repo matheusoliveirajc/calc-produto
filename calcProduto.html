@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+        #resultado{display: none;}/*Só irá aparecer quando clicarmos no botão (adiconar ao carrinho)*/
+    </style>
+</head>
+<body>
+    <div id="produtos"><!--O value será o preço do produto, o valor que ele terá quando chamarmos ele no código-->
+        <p>Ekos Frescor: <b>R$ 23</b> <input type="checkbox" name="Ekos Frescor" id="produto1" class="produtos" value="23"/></p>
+        <p>Deo Perfum Essencial: <b>R$ 34</b> <input type="checkbox" name="Deo Perfum Essencial" id="produto2" class="produtos" value="34"/></p>
+        <p>Sabonetes: <b>R$ 16</b> <input type="checkbox" name="Sabonetes" id="produto3" class="produtos" value="16"/></p>
+        <p>Creme Hidratante: <b>R$ 18</b> <input type="checkbox" name="Creme Hidratante" id="produto4" class="produtos" value="18"/></p>
+        <p>Florata Red: <b>R$ 30</b> <input type="checkbox" name="Florata Red" id="produto5" class="produtos" value="30"/></p>
+        <button type="submit" onclick="somarValores()">Adicionar ao carrinho</button>
+    </div>
+    <div id="resultado">
+        <p>Produtos</p>
+        <div id="produtos-escolhidos"></div><!--Aqui vão os produtos selecionados-->
+        <p id="valor-total"></p><!--Soma de todos valores dos produtos-->
+        <button type="submit">Finalizar compra</button>
+    </div>
+</body>
+<script>
+    function somarValores() {
+        let produtos = document.getElementsByClassName('produtos');/*vamos chamar os elementos que possuem uma classe chamada 'produtos'*/
+        let produtos_html = document.getElementById('produtos-escolhidos')
+        produtos_html.innerHTML = ''/*Vamos limpar todo o conteúdo da div, assim, quando chamarmos a função novamente, os novos e os antigos produtos selecionados não irão aparecer ao mesmo tempo.*/
+        const valorProduto = []/*Um array para armazenar os preços*/
+        const nomeProduto = []/*Um array para armazenar os produtos*/
+        if(produtos[0].checked) {/*Se o valor estiver selecionado(já que vários elementos possuem a mesma classe o [] seleciona um elemento com aquele valor(0 = primeiro elemento com o nome da classe e 1 = para o segundo e assim sucessivamente))*/
+            nomeProduto.push(produtos[0].name);/*com o push() vamos adicionar o valor ao array*/
+            valorProduto.push(produtos[0].value);
+        }
+        if(produtos[1].checked) {
+            nomeProduto.push(produtos[1].name);
+            valorProduto.push(produtos[1].value);
+        }
+        if(produtos[2].checked) {
+            nomeProduto.push(produtos[2].name);
+            valorProduto.push(produtos[2].value);
+        }
+        if(produtos[3].checked) {
+            nomeProduto.push(produtos[3].name);
+            valorProduto.push(produtos[3].value);
+        }
+        if(produtos[4].checked) {
+            nomeProduto.push(produtos[4].name);
+            valorProduto.push(produtos[4].value);
+        }
+        let valor_total = Number(0);
+        for(let v = 0; v < valorProduto.length; v++) {/*length é o tamanho do array, quantos elementos possuem nele. E v++ é o mesmo que v + 1*/
+            valor_total += Number(valorProduto[v]);/*Equanto o v é menor que a quantidade elementos no array, a variável valor_total irá somar e receber o valor.*/
+        }
+        let resultado = document.getElementById('resultado').style.display = 'block'/*fazemos aparecer o local onde iremos mostrar os nomes do produto e valor total*/
+        let valor_total_html = document.getElementById('valor-total')
+        for(p = 0; p < nomeProduto.length;p++) {/*mesma lógica no for de valor_total*/
+            produtos_html.innerHTML += '<p>'+nomeProduto[p]+': R$ '+valorProduto[p]+'</p>'
+        }
+        valor_total_html.innerHTML = '<p>Valor total: <b>R$ '+valor_total+'</b></p>'
+    }
+</script>
+</html>
