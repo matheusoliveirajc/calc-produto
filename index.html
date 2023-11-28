@@ -30,8 +30,8 @@
         let produtos = document.getElementsByClassName('produtos');/*vamos chamar os elementos que possuem uma classe chamada 'produtos'*/
         let produtos_html = document.getElementById('produtos-escolhidos')
         produtos_html.innerHTML = ''/*Vamos limpar todo o conteúdo da div, assim, quando chamarmos a função novamente, os novos e os antigos produtos selecionados não irão aparecer ao mesmo tempo.*/
-        const valorProduto = []/*Um array para armazenar os preços*/
         const nomeProduto = []/*Um array para armazenar os produtos*/
+        const valorProduto = []/*Um array para armazenar os preços*/
         if(produtos[0].checked) {/*Se o valor estiver selecionado(já que vários elementos possuem a mesma classe o [] seleciona um elemento com aquele valor(0 = primeiro elemento com o nome da classe e 1 = para o segundo e assim sucessivamente))*/
             nomeProduto.push(produtos[0].name);/*com o push() vamos adicionar o valor ao array*/
             valorProduto.push(produtos[0].value);
